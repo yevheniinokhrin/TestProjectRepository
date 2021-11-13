@@ -50,7 +50,7 @@ public class HibernateConfiguration {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManage(EntityManagerFactory entityManager) {
+    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManager) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManager);
         return transactionManager;
