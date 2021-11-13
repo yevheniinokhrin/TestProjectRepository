@@ -1,11 +1,19 @@
 package com.nokhrin.springtestproj.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class MyUser {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    String firstName;
-    String lastName;
-    String email;
-    int age;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private int age;
 
     public long getId() {
         return id;
