@@ -1,9 +1,8 @@
 package com.nokhrin.springtestproj.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class MyUser {
@@ -14,6 +13,18 @@ public class MyUser {
     private String lastName;
     private String email;
     private int age;
+    private String password;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<MyUserRole> appUserRole = new HashSet<MyUserRole>(0);
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public long getId() {
         return id;
@@ -53,5 +64,13 @@ public class MyUser {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Set<MyUserRole> getAppUserRole() {
+        return appUserRole;
+    }
+
+    public void setAppUserRole(Set<MyUserRole> appUserRole) {
+        this.appUserRole = appUserRole;
     }
 }

@@ -20,4 +20,6 @@ public interface MyUserService {
     MyUser getMyUser(long id);
 
     MyUser getByLastName(String lastName);
+
+    MyUser getByEmail(String lastName);
 }
