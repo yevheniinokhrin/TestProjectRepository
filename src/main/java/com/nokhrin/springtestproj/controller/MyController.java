@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.security.RolesAllowed;
 
 @RestController
-@RequestMapping("/api/messages")
+//@RequestMapping("/api/messages")
 public class MyController {
 
     @Autowired

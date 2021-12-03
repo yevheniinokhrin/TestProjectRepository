@@ -1,6 +1,7 @@
 <template>
 <h1>
-{{msg}}
+{{msg.firstName}}
+{{msg.lastName}}
 </h1>
 </template>
 
@@ -9,12 +10,12 @@ export default {
   name: 'HelloWorld',
   data(){
     return{
-      msg:''
+      msg:null
     }
   },
   mounted() {
-    fetch("/api/messages/msg")
-        .then((response)=>response.text())
+    fetch("/getUser")
+        .then((response)=>response.json())
         .then((data)=>{
       this.msg = data;
     })
