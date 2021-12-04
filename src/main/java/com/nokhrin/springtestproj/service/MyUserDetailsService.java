@@ -1,5 +1,5 @@
 package com.nokhrin.springtestproj.service;
-
+/*
 import com.nokhrin.springtestproj.model.MyUser;
 import com.nokhrin.springtestproj.model.MyUserRole;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,3 +45,4 @@ public class MyUserDetailsService implements UserDetailsService {
         return result;
     }
 }
+*/

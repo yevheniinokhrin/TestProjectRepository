@@ -6,8 +6,8 @@ import com.nokhrin.springtestproj.model.MyUserRole;
 import com.nokhrin.springtestproj.service.MyUserRoleService;
 import com.nokhrin.springtestproj.service.MyUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.annotation.Secured;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
@@ -22,7 +22,7 @@ public class MyController {
     @Autowired
     MyUserRoleService myUserRoleService;
 
-    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+  //  @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @GetMapping("/fck/{userName}")
     public String firstMethod(@PathVariable String userName){
         return "Fuck "+userName;
@@ -46,7 +46,16 @@ public class MyController {
         return myUser;
     }
 
-    @Secured({"ROLE_ADMIN"})
+    @PostMapping("/setUser")
+    public MyUser secondMethod(@RequestBody MyUser user){
+
+        System.out.println(user.getFirstName() + " aa");
+        System.out.println(user.getFirstName() + " bbb");
+        System.out.println(user.getFirstName() + " cc");
+        return user;
+    }
+
+//   @Secured({"ROLE_ADMIN"})
     @GetMapping("/setRole/{idUser}/{role}")
     public MyUser setMyUserRoleToUser(@PathVariable long idUser, @PathVariable String role){
         MyUserRole myUserRole = myUserRoleService.getAppUserRole(role);

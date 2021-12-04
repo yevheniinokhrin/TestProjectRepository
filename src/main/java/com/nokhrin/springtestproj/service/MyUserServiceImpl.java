@@ -4,7 +4,7 @@ import com.nokhrin.springtestproj.model.MyUser;
 import com.nokhrin.springtestproj.repository.MyUserRepository;
 import com.nokhrin.springtestproj.repository.MyUserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -21,7 +21,7 @@ public class MyUserServiceImpl implements MyUserService {
     @Override
     public void addMyUser(MyUser myUser) {
         myUser.getAppUserRole().add(myUserRoleRepository.findByRole("ROLE_USER"));
-        myUser.setPassword(hashPassword(myUser.getPassword()));
+      //  myUser.setPassword(hashPassword(myUser.getPassword()));
         myUserRepository.save(myUser);
     }
 
@@ -58,8 +58,8 @@ public class MyUserServiceImpl implements MyUserService {
         return myUserRepository.findByEmail(email);
     }
 
-    private String hashPassword(String password){
+ /*   private String hashPassword(String password){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         return passwordEncoder.encode(password);
-    }
+    }*/
 }
